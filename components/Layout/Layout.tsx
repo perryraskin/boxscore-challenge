@@ -30,7 +30,7 @@ const Layout: NextPage<Props> = ({ children }) => {
           content="A Shopping Cart built with TypeScript, NextJS, React, Apollo Client, Shopify Storefront GraphQL API, and TailwindCSS."
         />
       </Head>
-      <div className="antialiased text-gray-900">
+      <div className="antialiased text-gray-900 bg-white">
         <div className="h-screen flex overflow-hidden">
           <div className="flex-1 flex-col relative z-0 overflow-y-auto">
             {children}

@@ -2,29 +2,32 @@ import { NextPage } from "next"
 import QuickStats from "./QuickStats"
 import QuickStatHeaders from "./QuickStatHeaders"
 
+import { Game } from "../../models/interfaces"
+
 interface Props {
-  data?: any
+  data?: Game
 }
 
 const BoxScore: NextPage<Props> = ({ data }) => {
   const {
-    home_team: homeTeam,
-    home_period_scores: homePeriodScores,
-    home_batter_totals: homeBatterTotals,
-    home_totals: homeTotals,
-    home_errors: homeErrors,
-    away_team: awayTeam,
-    away_period_scores: awayPeriodScores,
-    away_batter_totals: awayBatterTotals,
-    away_totals: awayTotals,
-    away_errors: awayErrors,
-    event_information: eventInformation,
+    home_team,
+    home_period_scores,
+    home_batter_totals,
+    home_totals,
+    home_errors,
+    away_team,
+    away_period_scores,
+    away_batter_totals,
+    away_totals,
+    away_errors,
+    event_information,
+    league,
   } = data
   return (
     <div>
-      <div className="mt-20 bg-blue-900 max-w-2xl ml-auto mr-auto pb-6 rounded-t-lg shadow">
+      <div className="mt-10 bg-blue-900 max-w-2xl ml-auto mr-auto pb-6 rounded-t-lg shadow">
         <h2 className="text-center text-2xl pt-4 font-extrabold text-white tracking-tight">
-          {awayTeam.full_name} @ {homeTeam.full_name}
+          {away_team.full_name} @ {home_team.full_name}
         </h2>
       </div>
       <div className="flex flex-col max-w-2xl ml-auto mr-auto">
@@ -38,8 +41,8 @@ const BoxScore: NextPage<Props> = ({ data }) => {
                       scope="col"
                       className="px-2 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
                     ></th>
-                    {homePeriodScores
-                      ? homePeriodScores.map((score, index) => (
+                    {home_period_scores
+                      ? home_period_scores.map((score, index) => (
                           <th
                             scope="col"
                             className="bg-gray-50 text-center px-2 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -48,11 +51,12 @@ const BoxScore: NextPage<Props> = ({ data }) => {
                           </th>
                         ))
                       : null}
-                    {data.league === "MLB" ? (
+                    {league === "MLB" ? (
                       <QuickStatHeaders headerNames={["R", "H", "E"]} />
-                    ) : data.league === "NBA" ? (
+                    ) : league === "NBA" ? (
                       <QuickStatHeaders
                         headerNames={[
+                          "PTS",
                           "AST",
                           "STL",
                           "BLK",
@@ -68,10 +72,10 @@ const BoxScore: NextPage<Props> = ({ data }) => {
                 <tbody>
                   <tr>
                     <td className="bg-gray-100 px-2 py-2 text-center whitespace-nowrap text-sm font-medium text-gray-900">
-                      {awayTeam.abbreviation || ""}
+                      {away_team.abbreviation || ""}
                     </td>
-                    {awayPeriodScores
-                      ? awayPeriodScores.map((score, index) => (
+                    {away_period_scores
+                      ? away_period_scores.map((score, index) => (
                           <td
                             scope="col"
                             className="text-center px-2 py-2 whitespace-nowrap text-sm text-gray-900"
@@ -80,34 +84,35 @@ const BoxScore: NextPage<Props> = ({ data }) => {
                           </td>
                         ))
                       : null}
-                    {data.league === "MLB" ? (
+                    {league === "MLB" ? (
                       <QuickStats
                         statNumbers={[
-                          awayBatterTotals.runs,
-                          awayBatterTotals.hits,
-                          awayErrors,
+                          away_batter_totals.runs,
+                          away_batter_totals.hits,
+                          away_errors,
                         ]}
                       />
-                    ) : data.league === "NBA" ? (
+                    ) : league === "NBA" ? (
                       <QuickStats
                         statNumbers={[
-                          awayTotals.assists,
-                          awayTotals.steals,
-                          awayTotals.blocks,
-                          awayTotals.turnovers,
-                          awayTotals.personal_fouls,
-                          awayTotals.field_goals_made,
-                          awayTotals.field_goals_attempted,
+                          away_totals.points,
+                          away_totals.assists,
+                          away_totals.steals,
+                          away_totals.blocks,
+                          away_totals.turnovers,
+                          away_totals.personal_fouls,
+                          away_totals.field_goals_made,
+                          away_totals.field_goals_attempted,
                         ]}
                       />
                     ) : null}
                   </tr>
                   <tr>
                     <td className="bg-gray-100 px-2 py-2 text-center whitespace-nowrap text-sm font-medium text-gray-900">
-                      {homeTeam.abbreviation || ""}
+                      {home_team.abbreviation || ""}
                     </td>
-                    {homePeriodScores
-                      ? homePeriodScores.map((score, index) => (
+                    {home_period_scores
+                      ? home_period_scores.map((score, index) => (
                           <td
                             scope="col"
                             className="text-center px-2 py-2 whitespace-nowrap text-sm text-gray-900"
@@ -116,41 +121,29 @@ const BoxScore: NextPage<Props> = ({ data }) => {
                           </td>
                         ))
                       : null}
-                    {data.league === "MLB" ? (
+                    {league === "MLB" ? (
                       <QuickStats
                         statNumbers={[
-                          homeBatterTotals.runs,
-                          homeBatterTotals.hits,
-                          homeErrors,
+                          home_batter_totals.runs,
+                          home_batter_totals.hits,
+                          home_errors,
                         ]}
                       />
-                    ) : data.league === "NBA" ? (
+                    ) : league === "NBA" ? (
                       <QuickStats
                         statNumbers={[
-                          homeTotals.assists,
-                          homeTotals.steals,
-                          homeTotals.blocks,
-                          homeTotals.turnovers,
-                          homeTotals.personal_fouls,
-                          homeTotals.field_goals_made,
-                          homeTotals.field_goals_attempted,
+                          home_totals.points,
+                          home_totals.assists,
+                          home_totals.steals,
+                          home_totals.blocks,
+                          home_totals.turnovers,
+                          home_totals.personal_fouls,
+                          home_totals.field_goals_made,
+                          home_totals.field_goals_attempted,
                         ]}
                       />
                     ) : null}
                   </tr>
-                  {/* {people.map((person, personIdx) => (
-                  <tr key={person.email} className={personIdx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{person.name}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.title}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.email}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{person.role}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                      <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                        Edit
-                      </a>
-                    </td>
-                  </tr>
-                ))} */}
                 </tbody>
               </table>
             </div>
@@ -159,15 +152,16 @@ const BoxScore: NextPage<Props> = ({ data }) => {
       </div>
       <div className="bg-blue-50 max-w-2xl ml-auto mr-auto pt-6 pb-6 rounded-b-lg shadow">
         <h2 className="mb-4 text-center text-sm font-semibold tracking-wider text-gray-900 uppercase">
-          {eventInformation.site.name} ~ {eventInformation.site.city},{" "}
-          {eventInformation.site.state}
+          {event_information.site.name} ~ {event_information.site.city},{" "}
+          {event_information.site.state}
         </h2>
+        {/* Assuming the status value provides pre-game, in-game, and post-game state */}
         <p className="text-center">
           <span
             className="inline-flex items-center px-3 py-0.5 rounded-full text-xs 
           font-semibold bg-blue-900 text-white uppercase tracking-wider"
           >
-            {eventInformation.status}
+            {event_information.status}
           </span>
         </p>
       </div>
