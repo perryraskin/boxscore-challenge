@@ -1,4 +1,6 @@
 import { NextPage } from "next"
+import dayjs from "dayjs"
+
 import QuickStats from "./QuickStats"
 import QuickStatHeaders from "./QuickStatHeaders"
 
@@ -151,10 +153,15 @@ const BoxScore: NextPage<Props> = ({ data }) => {
         </div>
       </div>
       <div className="bg-blue-50 max-w-2xl ml-auto mr-auto pt-6 pb-6 rounded-b-lg shadow">
-        <h2 className="mb-4 text-center text-sm font-semibold tracking-wider text-gray-900 uppercase">
+        <h2 className="mb-1 text-center text-sm font-semibold tracking-wider text-gray-900 uppercase">
           {event_information.site.name} ~ {event_information.site.city},{" "}
           {event_information.site.state}
         </h2>
+        <p className="mb-4 text-center text-sm font-semibold text-gray-900">
+          {dayjs(event_information.start_date_time).format(
+            "dddd ~ MMMM D, YYYY ~ h:mm A"
+          )}
+        </p>
         {/* Assuming the status value provides pre-game, in-game, and post-game state */}
         <p className="text-center">
           <span
