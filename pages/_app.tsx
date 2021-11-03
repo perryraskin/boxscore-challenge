@@ -18,24 +18,24 @@ class MyApp extends App {
           <meta
             key="description"
             property="description"
-            content="Next.js TailwindCSS Starter"
+            content="The Boxscore Challenge"
           />
-          <title key="title">Next.js TailwindCSS Starter</title>
+          <title key="title">The Boxscore Challenge</title>
           {/* OpenGraph tags */}
           <meta
             key="og:url"
             property="og:url"
-            content="https://github.com/perryraskin/nextjs-tailwindcss-starter"
+            content="https://github.com/perryraskin/boxscore-challenge"
           />
           <meta
             key="og:title"
             property="og:title"
-            content="Next.js TailwindCSS Starter"
+            content="The Boxscore Challenge"
           />
           <meta
             key="og:description"
             property="og:description"
-            content="Next.js TailwindCSS Starter"
+            content="The Boxscore Challenge"
           />
           {/* <meta key="og:image" property="og:image" content="" /> */}
           <meta key="og:type" property="og:type" content="website" />
@@ -43,12 +43,12 @@ class MyApp extends App {
           <meta
             key="twitter:title"
             property="twitter:title"
-            content="Next.js TailwindCSS Starter"
+            content="The Boxscore Challenge"
           />
           <meta
             key="twitter:description"
             property="twitter:description"
-            content="Next.js TailwindCSS Starter"
+            content="The Boxscore Challenge"
           />
           {/* <meta key="twitter:image" property="twitter:image" content="" /> */}
           <meta key="twitter:card" property="twitter:card" content="summary" />
