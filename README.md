@@ -22,8 +22,8 @@ The Boxscore is the goto widget on any sports site to get quick information abou
 - `Index` page loads, calls the `Home` component.
 - Data comes from the `/api/games` endpoint, which fetches data from the provided JSON URLs.
 - Latest game data is pulled upon loading the app, inside the `Home` component, and continues to be pulled every minute. Useful if this webpage were kept open on a television at a bar or a restaurant.
-- `Home` component calls `Tabs` and `BoxScore` components
-- `BoxScore` component calls `QuickStatHeaders` and `QuickStats` components
+- `Home` component calls `Tabs` and `BoxScore` components.
+- `BoxScore` component calls `QuickStatHeaders` and `QuickStats` components.
 - Interfaces are defined in `/models/interfaces`.
 
 ## Usage
