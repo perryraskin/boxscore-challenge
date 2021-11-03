@@ -26,7 +26,7 @@ const BoxScore: NextPage<Props> = ({ data }) => {
   return (
     <div>
       <div className="mt-10 bg-blue-900 max-w-2xl ml-auto mr-auto pb-6 rounded-t-lg shadow">
-        <h2 className="text-center text-2xl pt-4 font-extrabold text-white tracking-tight">
+        <h2 className="text-center text-2xl pt-5 font-extrabold text-white tracking-tight">
           {away_team.full_name} @ {home_team.full_name}
         </h2>
       </div>
