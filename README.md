@@ -2,7 +2,7 @@
 
 The Boxscore is the goto widget on any sports site to get quick information about a game. ESPN, Fox Sports, theScore, and many others have solutions.
 
-![Boxscore Design](https://i.ibb.co/QfMdGvm/Screen-Shot-2021-11-03-at-10-27-47-AM.png)
+![Boxscore Design](https://i.ibb.co/6XxCtn0/Screen-Shot-2021-11-03-at-2-21-09-PM.png)
 
 ### Stack
 
