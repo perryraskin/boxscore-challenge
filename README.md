@@ -4,7 +4,7 @@ The Boxscore is the goto widget on any sports site to get quick information abou
 
 ![Boxscore Design](https://i.ibb.co/vZvx1VN/Screen-Shot-2021-11-03-at-8-51-45-AM.png)
 
-### Tech Stack
+### Stack
 
 - Next.js
 - TailwindCSS
@@ -21,7 +21,7 @@ The Boxscore is the goto widget on any sports site to get quick information abou
 
 - `Index` page loads, calls the `Home` component.
 - Data comes from the `/api/games` endpoint, which fetches data from the provided JSON URLs.
-- Latest game data is pulled upon loading the app, inside the `Home` component, and continues to be pulled every minute. Useful if this webpage were kept open at a bar or a restaurant television.
+- Latest game data is pulled upon loading the app, inside the `Home` component, and continues to be pulled every minute. Useful if this webpage were kept open on a television at a bar or a restaurant.
 - `Home` component calls `Tabs` and `BoxScore` components
 - `BoxScore` component calls `QuickStatHeaders` and `QuickStats` components
 - Interfaces are defined in `/models/interfaces`.
