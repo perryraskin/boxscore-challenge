@@ -15,7 +15,7 @@ The Boxscore is the goto widget on any sports site to get quick information abou
 - Boxscore dynamically populates game periods (or innings, for MLB).
 - The far right of the Boxscore dynamically populates total game stats per team.
 - Team names are on top.
-- Stadium name, city, state, and game status are on the bottom.
+- Stadium name, city, state, date & time, and game status are on the bottom.
 
 ### App Structure & Flow
 
