@@ -12,13 +12,16 @@ const Home: NextPage<Props> = ({}) => {
   const [currentGameData, setCurrentGameData] = React.useState(null)
 
   async function getGameData(league: string = chosenLeague) {
-    const response = await fetch(`/api/game?league=${league}`)
+    const response = await fetch(`/api/games?league=${league}`)
     const data = await response.json()
     setCurrentGameData(data)
   }
 
   React.useEffect(() => {
     getGameData()
+    setInterval(() => {
+      getGameData()
+    }, 60000)
   }, [])
   return (
     <div>
